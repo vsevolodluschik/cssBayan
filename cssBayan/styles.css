@@ -1,0 +1,167 @@
+/*
+color: rgb(25, 0, 255);
+color: rgba(56, 0, 78, 0.8);
+border-top: 0.1rem solid #dadfe4;
+*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
+}
+
+body {
+  background-color: #f5f5eb;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+}
+
+.container {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 4rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: rgba(0, 0, 56, 0.8);
+  margin-bottom: 1.5rem;
+}
+
+input {
+  display: none;
+}
+
+.question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  color: rgb(50, 0, 255);
+  padding: 1rem 0;
+  border-top: 0.1rem solid #dadfe4;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.question p {
+  font-size: 1.6rem;
+  color: rgba(0, 0, 56, 0.8);
+  padding-bottom: 0.3rem;
+  transition: all 0.3s ease 0s;
+}
+
+.answer {
+  max-height: 0;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.answer img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto 1.5rem;
+  transform: scale(0.8);
+  opacity: 0;
+  transition: all 0.2s ease 0s;
+}
+
+input:checked~.accordion-label .answer {
+  max-height: 100vh;
+}
+
+input:checked~.accordion-label .question p {
+  transform: rotate(45deg);
+}
+
+input:checked~.accordion-label .question {
+  color: rgba(50, 0, 56, 0.8);
+}
+
+input:checked~.accordion-label .answer img {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (any-hover: hover) {
+  .accordion:hover .question {
+    color: rgba(56, 0, 56, 0.8);
+  }
+
+  input:hover~.accordion-label .question p {
+    transform: rotate(45deg);
+  }
+
+  input:hover~.accordion-label .answer {
+    max-height: 100vh;
+  }
+
+  input:hover~.accordion-label .answer img {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  input:active~.accordion-label .question {
+    color: rgb(183, 0, 255);
+    opacity: 0.5;
+  }
+
+  input:active~.accordion-label .question p {
+    color: rgb(204, 0, 255);
+  }
+
+  input:active~.accordion-label .answer img {
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 820px) {
+  .container {
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .question {
+    font-size: 1.1rem;
+  }
+
+  .question p {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .container {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    margin-top: 1rem;
+  }
+
+  .question {
+    font-size: 0.9rem;
+  }
+
+  .question p {
+    font-size: 1rem;
+  }
+}
